@@ -1,46 +1,23 @@
 class Calculator {
+  final List<String> validOperators = ['+', '-', '*', '/'];
   String operator;
   double num1;
   double num2;
-  double total = 0;
 
   Calculator(this.operator, this.num1, this.num2);
 
-  double sum() {
-    return num1 + num2;
-  }
-
-  double sub() {
-    return num1 - num2;
-  }
-
-  double mul() {
-    return num1 * num2;
-  }
-
-  double div() {
-    return num1 / num2;
-  }
-
-  double result() {
-    total = 0;
+  double calc() {
     switch (operator) {
       case "+":
-        total += sum();
-        break;
+        return num1 + num2;
       case "-":
-        total += sub();
-        break;
+        return num1 - num2;
       case "*":
-        total += mul();
-        break;
+        return num1 * num2;
       case "/":
-        total += div();
-        break;
+        return num1 / num2;
       default:
-        total;
+        return 0;
     }
-
-    return total;
   }
 }
