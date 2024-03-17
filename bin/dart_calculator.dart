@@ -2,31 +2,33 @@ import 'package:dart_calculator/calculator.dart';
 import 'dart:io';
 
 void main(List<String> arguments) {
-  Calculator calc;
-  String? operator;
-  String? num1;
-  String? num2;
+  print("Informe o primeiro valor");
+  String? num1 = stdin.readLineSync()!;
 
+  if (checkNumber(num1)) {
+    calc(double.parse(num1));
+  }
+  print("Programa encerrado!");
+}
+
+void calc(double n1) {
   print("Informe o operador do cálculo");
-  operator = stdin.readLineSync()!;
+  String? opr = stdin.readLineSync()!;
 
-  if (checkOperator(operator.trim())) {
-    print("Informe o primeiro valor");
-    num1 = stdin.readLineSync()!;
+  if (checkOperator(opr.trim())) {
     print("Informe o segundo valor");
-    num2 = stdin.readLineSync()!;
+    String? num2 = stdin.readLineSync()!;
 
-    if (checkNumber(num1) && checkNumber(num2)) {
-      double n1 = double.parse(num1);
+    if (checkNumber(num2)) {
       double n2 = double.parse(num2);
 
-      calc = Calculator(operator, n1, n2);
-      print("O valor final é ${calc.result()}");
-    } else {
-      print("Os números informados estão incorretos");
+      Calculator calculator = Calculator(opr, n1, n2);
+      calculator.result();
+
+      print("O valor final é ${calculator.total}");
+
+      calc(calculator.total);
     }
-  } else {
-    print("Operador errado");
   }
 }
 

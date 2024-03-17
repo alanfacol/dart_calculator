@@ -23,6 +23,7 @@ class Calculator {
   }
 
   double result() {
+    total = 0;
     switch (operator) {
       case "+":
         total += sum();
