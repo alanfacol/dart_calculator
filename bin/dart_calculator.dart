@@ -40,6 +40,7 @@ void calc(Calculator calculator) {
       print(
           "${calculator.num1} ${calculator.operator} ${calculator.num2} = $total");
 
+      calculator.num1 = total;
       calc(calculator);
     }
   }
